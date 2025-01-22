@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Proof-of-concept framework that uses AI services for automatically adding audio to silent videos.">
+  <meta name="keywords" content="Auto-Foley, Auto-Foley Editor">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Auto-Foley</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=TODO:GOOGLE_ANALYTICS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'TODO:GOOGLE_ANALYTICS');
+  </script>
+  -->
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Automated Audio Source Analysis and Sound Effect Generation for Silent Videos using Vision Language Models</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://thomasmore.be/en/exp-dodi">Centre of Expertise for Sustainable Business and Digital Innovation - Thomas More</a>
+			</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Code Link. -->
+              <span class="link-block">
+				<a href="https://github.com/DODI-Research/auto-foley-editor"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+				</a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/spaces/DODI-Research/auto-foley-editor"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fa-solid fa-desktop"></i>
+                  </span>
+                  <span>Demo</span>
+				</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+	<div class="columns is-centered has-text-centered">
+      <div class="column is-three-quarters">
+        <h3 class="has-text-centered" style="font-size: 1.2rem;">
+          <strong>Auto-Foley</strong> is a proof-of-concept workflow that automates sound design for silent videos.
+		  This is done through a two-stage pipeline that uses a vision large language model for analysis of video scenes and for generating text prompts for sound effects that might occur in them, which are then send to a text-to-sound-effects model. 
+		  The resulting audio files are then composited back onto the original video at their appropriate timings.
+        </h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-train">
+          <video poster="" id="train" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/train.mp4"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-train2">
+          <video poster="" id="train2" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/train.mp4"
+                    type="video/webm">
+          </video>
+        </div>
+		<div class="item item-train3">
+          <video poster="" id="train3" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/train.mp4"
+                    type="video/webm">
+          </video>
+        </div>
+		<div class="item item-train4">
+          <video poster="" id="train4" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/train.mp4"
+                    type="video/webm">
+          </video>
+        </div>
+		<div class="item item-train5">
+          <video poster="" id="train5" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/train.mp4"
+                    type="video/webm">
+          </video>
+        </div>
+		<div class="item item-train6">
+          <video poster="" id="train6" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/train.mp4"
+                    type="video/webm">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Overview. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+            PH
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Overview. -->
+
+    <!-- Comparison. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Comparison</h2>
+		<div class="content has-text-justified">
+          <p>
+            PH
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Comparison. -->
+	
+	<!-- Editor. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Comparison</h2>
+		<div class="content has-text-justified">
+          <p>
+            PH
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Editor. -->
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://github.com/DODI-Research/auto-foley" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website template by <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
