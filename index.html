@@ -90,9 +90,7 @@
 	<div class="columns is-centered has-text-centered">
       <div class="column is-three-quarters">
         <h3 class="has-text-centered" style="font-size: 1.2rem;">
-          <strong>Auto-Foley</strong> is a proof-of-concept workflow that automates sound design for silent videos.
-		  This is done through a two-stage pipeline that uses a vision large language model for analysis of video scenes and for generating text prompts for sound effects that might occur in them, which are then send to a text-to-sfx model. 
-		  The resulting audio files are then composited back onto the original video at their appropriate timings.
+          <strong>Auto-Foley</strong> is a proof-of-concept workflow that automates sound design for silent videos, using a vision language model for scene analysis.
         </h3>
       </div>
     </div>
@@ -146,9 +144,15 @@
         <h2 class="title is-3">Overview</h2>
         <div class="content has-text-justified">
           <p>
-            
+			  The workflow combines a vision language model to analyze scenes and generate text prompts, with a text-to-sfx model to create appropriate sound effects.
+			  These sounds are then composited back onto the original video at their appropriate timings.
           </p>
         </div>
+		<div class="is-centered">
+			<center>
+				<img src="static/images/workflow.jpg" width="900px">
+			</center>
+		</div>
       </div>
     </div>
     <!--/ Overview. -->
