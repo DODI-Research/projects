@@ -101,7 +101,7 @@
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-train">
+		<div class="item item-train">
           <video poster="" id="train" autoplay controls muted loop playsinline height="100%">
             <source src="./static/videos/train.webm"
                     type="video/webm">
@@ -144,8 +144,9 @@
         <h2 class="title is-3">Overview</h2>
         <div class="content has-text-justified">
           <p>
-			  The workflow combines a vision language model to analyze scenes and generate text prompts, with a text-to-sfx model to create appropriate sound effects.
-			  These sounds are then composited back onto the original video at their appropriate timings.
+			  The workflow instructs a vision language model to analyze the contents of the scenes and to generate text prompts for possible audio sources that could exist in them. 
+			  These prompts are then sent to a text-to-sfx model.
+			  The resulting audio files are then composited back onto the original video at their appropriate timings.
           </p>
         </div>
       </div>
@@ -159,13 +160,98 @@
     </div>
     <!--/ Overview. -->
 
-    <!-- Comparison. -->
+	<!-- Proof-of-concept. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Comparison</h2>
+        <h2 class="title is-3">Proof-of-concept</h2>
 		<div class="content has-text-justified">
           <p>
-            
+		  This project explores the idea of using vision language models in sound design workflows.
+          </p>
+		  <p>
+		  Rather than focusing on a specific implementation of that idea, the workflow follows a modular design where both the vision language model and the text-to-sfx services are replacable.
+		  </p>
+		  <p>
+		  For the sake of simplicity and rapid development, the API services of OpenAI and ElevenLabs were used.
+		  While functional, the quality of the output becomes increasingly worse the more complex or lengthy the videos are.
+		  </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Proof-of-concept. -->
+
+    <!-- Comparison. -->
+	<div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Comparison</h2>
+        <div class="content has-text-justified">
+          <p>
+            Auto-foley takes a different approach compared to traditional video-to-audio architectures, like Google DeepMind's V2A technology.
+          <p>
+          </p>
+			Converting scene analysis to text before generating audio from it causes synchronization details to get lost in translation. 
+			While models like V2A generate synchronized audio directly from visual input.
+          </p>
+          <div class="columns is-centered comparison-table">
+            <div class="column is-half">
+              <p class="has-text-centered"><a href="https://deepmind.google/discover/blog/generating-audio-for-video/">V2A</a></p>
+              <video controls muted playsinline height="100%">
+                <source src="./static/videos/drums_v2a.webm" type="video/webm">
+              </video>
+            </div>
+            <div class="column is-half">
+              <p class="has-text-centered">Auto-foley</p>
+              <video controls muted playsinline height="100%">
+                <source src="./static/videos/drums_auto-foley.webm" type="video/webm">
+              </video>
+            </div>
+          </div>
+          <p class="mb-6">
+            The Auto-Foley output has an incorrect rhythm pattern compared to the visual performance.
+		  </p>
+		  <p>
+			The usage of a vision language model does offer a feature in its ability to describe ambient audio sources that should be heard, but are not seen in the visual input.
+          </p>
+		  <p>
+			The limitations of the short and non-complex input, combined with the strength of ambient background noise being able to blend out small flaws in synchronization, makes Auto-Foley still suitable as the final step for AI video generation workflows. 
+			A comparison with Tencent's Hunyuan Video shows how Auto-Foley performs in that scenario.
+          </p>
+		  <div class="columns is-multiline is-centered comparison-table">
+            <div class="column is-half" style="padding-bottom: 0px;">
+              <p class="has-text-centered"><a href="https://aivideo.hunyuan.tencent.com/">Hunyuan Video</a></p>
+              <video controls muted playsinline height="100%">
+                <source src="./static/videos/waterfall_hunyuan.webm" type="video/webm">
+              </video>
+            </div>
+            <div class="column is-half" style="padding-bottom: 0px;">
+              <p class="has-text-centered">Auto-foley</p>
+              <video controls muted playsinline height="100%">
+                <source src="./static/videos/waterfall_auto-foley.webm" type="video/webm">
+              </video>
+            </div>
+            <div class="column is-half" style="padding-bottom: 0px;">
+              <video controls muted playsinline height="100%">
+                <source src="./static/videos/rally_hunyuan.webm" type="video/webm">
+              </video>
+            </div>
+            <div class="column is-half" style="padding-bottom: 0px;">
+              <video controls muted playsinline height="100%">
+                <source src="./static/videos/rally_auto-foley.webm" type="video/webm">
+              </video>
+            </div>
+            <div class="column is-half" style="padding-bottom: 0px;">
+              <video controls muted playsinline height="100%">
+                <source src="./static/videos/yoga_hunyuan.webm" type="video/webm">
+              </video>
+            </div>
+            <div class="column is-half" style="padding-bottom: 0px;">
+              <video controls muted playsinline height="100%">
+                <source src="./static/videos/yoga_auto-foley.webm" type="video/webm">
+              </video>
+            </div>
+          </div>
+          <p>
+            Auto-Foley shows how simply linking two readily available API services together can create results comparable to current solutions in certain environments.
           </p>
         </div>
       </div>
@@ -178,12 +264,32 @@
         <h2 class="title is-3">Editor</h2>
 		<div class="content has-text-justified">
           <p>
-            
+            Another benefit of the Auto-Foley workflow is that it enables human intervention between its two main components.
+			Instead of producing a single audio track, Auto-Foley generates a separate file for each audio source. 
+			This allows for manual synchronization adjustments, removal of unwanted sounds, or generation of new audio sources.
           </p>
+          <p>			
+			<a href="https://github.com/DODI-Research/auto-foley-editor">Auto-Foley Editor</a> demonstrates this editing capability in a Gradio interface.
+          </p>
+          <div class="columns is-centered comparison-table">
+            <div class="column is-half">
+              <p class="has-text-centered">Basic input</p>
+              <video controls muted playsinline height="100%">
+                <source src="./static/videos/editor_basic.webm" type="video/webm">
+              </video>
+            </div>
+            <div class="column is-half">
+              <p class="has-text-centered">Advanced control</p>
+              <video controls muted playsinline height="100%">
+                <source src="./static/videos/editor_advanced.webm" type="video/webm">
+              </video>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <!--/ Editor. -->
+    </div>
   </div>
 </section>
 
@@ -198,7 +304,7 @@
       <div class="column is-8">
         <div class="content has-text-centered">
           <p>
-            Website template by <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+            Page template by <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
           </p>
         </div>
       </div>
