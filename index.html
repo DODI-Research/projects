@@ -144,9 +144,9 @@
         <h2 class="title is-3">Overview</h2>
         <div class="content has-text-justified">
           <p>
-			  The workflow instructs a vision language model to analyze the contents of the scenes and to generate text prompts for possible audio sources that could exist in them. 
-			  These prompts are then sent to a text-to-sfx model.
-			  The resulting audio files are then composited back onto the original video at their appropriate timings.
+			The workflow instructs a vision language model to analyze the contents of the scenes and to generate text prompts for possible audio sources that could exist in them. 
+			These prompts are then sent to a text-to-sfx model.
+			The resulting audio files are then composited back onto the original video at their appropriate timings.
           </p>
         </div>
       </div>
@@ -166,14 +166,17 @@
         <h2 class="title is-3">Proof-of-concept</h2>
 		<div class="content has-text-justified">
           <p>
-		  This project explores the idea of using vision language models in sound design workflows.
+			<strong>Auto-Foley</strong> is a proof-of-concept developed for the project <strong>MediaGenie</strong>, a TETRA research project by the Centre of Expertise for Sustainable Business and Digital Innovation at Thomas More University of Applied Sciences, supported by <strong>VLAIO</strong>.
+          </p>
+          <p>
+			This project explores the idea of using vision language models in sound design workflows.
           </p>
 		  <p>
-		  Rather than focusing on a specific implementation of that idea, the workflow follows a modular design where both the vision language model and the text-to-sfx services are replacable.
+			Rather than focusing on a specific implementation of that idea, the workflow follows a modular design where both the vision language model and the text-to-sfx services are replacable.
 		  </p>
 		  <p>
-		  For the sake of simplicity and rapid development, the API services of OpenAI and ElevenLabs were used.
-		  While functional, the quality of the output becomes increasingly worse the more complex or lengthy the videos are.
+			For the sake of simplicity and rapid development, the API services of OpenAI and ElevenLabs were used.
+			While functional, the quality of the output is influenced by both the complexity and duration of the input video. 
 		  </p>
         </div>
       </div>
@@ -295,15 +298,18 @@
 
 <footer class="footer">
   <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link" href="https://github.com/DODI-Research/auto-foley" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content has-text-centered">
-          <p>
+          <div style="display: flex; justify-content: center; align-items: center; gap: 2rem;">
+            <a href="https://thomasmore.be/en/exp-dodi" style="display: block;">
+              <img src="static/images/logo_thomas-more.png" style="height: 60px; width: auto;">
+            </a>
+            <a href="https://www.vlaio.be/en" style="display: block;">
+              <img src="static/images/logo_vlaio.png" style="height: 60px; width: auto;">
+            </a>
+          </div>
+          <p style="margin-top: 2rem;">
             Page template by <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
           </p>
         </div>
