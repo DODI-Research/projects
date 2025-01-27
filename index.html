@@ -101,37 +101,35 @@
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
-		<div class="item item-train">
-          <video poster="" id="train" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/train.webm"
-                    type="video/webm">
+        <div class="item item-train">
+          <video poster="" id="train" autoplay loop muted playsinline height="100%" onclick="toggleMute(this)">
+            <source src="./static/videos/train.webm" type="video/webm">
           </video>
         </div>
         <div class="item item-reading">
-          <video poster="" id="reading" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/reading.webm"
-                    type="video/webm">
+          <video poster="" id="reading" autoplay loop muted playsinline height="100%" onclick="toggleMute(this)">
+            <source src="./static/videos/reading.webm" type="video/webm">
           </video>
         </div>
-		<div class="item item-horses">
-          <video poster="" id="horses" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/horses.webm"
-                    type="video/webm">
+        <div class="item item-horses">
+          <video poster="" id="horses" autoplay loop muted playsinline height="100%" onclick="toggleMute(this)">
+            <source src="./static/videos/horses.webm" type="video/webm">
           </video>
         </div>
-		<div class="item item-bowling">
-          <video poster="" id="bowling" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/bowling.webm"
-                    type="video/webm">
+        <div class="item item-bowling">
+          <video poster="" id="bowling" autoplay loop muted playsinline height="100%" onclick="toggleMute(this)">
+            <source src="./static/videos/bowling.webm" type="video/webm">
           </video>
         </div>
-		<div class="item item-guitar">
-          <video poster="" id="guitar" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/guitar.webm"
-                    type="video/webm">
+        <div class="item item-guitar">
+          <video poster="" id="guitar" autoplay loop muted playsinline height="100%" onclick="toggleMute(this)">
+            <source src="./static/videos/guitar.webm" type="video/webm">
           </video>
         </div>
       </div>
+	  <p style="margin-top: 10px; text-align: center; font-size: 12pt;">
+        Click on a video to mute or unmute it.
+      </p>
     </div>
   </div>
 </section>
@@ -195,13 +193,13 @@
           <div class="columns is-centered comparison-table">
             <div class="column is-half">
               <p class="has-text-centered"><a href="https://deepmind.google/discover/blog/generating-audio-for-video/">V2A</a></p>
-              <video controls muted playsinline height="100%">
+              <video controls playsinline height="100%">
                 <source src="./static/videos/drums_v2a.webm" type="video/webm">
               </video>
             </div>
             <div class="column is-half">
               <p class="has-text-centered">Auto-foley</p>
-              <video controls muted playsinline height="100%">
+              <video controls playsinline height="100%">
                 <source src="./static/videos/drums_auto-foley.webm" type="video/webm">
               </video>
             </div>
@@ -219,33 +217,33 @@
 		  <div class="columns is-multiline is-centered comparison-table">
             <div class="column is-half" style="padding-bottom: 0px;">
               <p class="has-text-centered"><a href="https://aivideo.hunyuan.tencent.com/">Hunyuan Video</a></p>
-              <video controls muted playsinline height="100%">
+              <video controls playsinline height="100%">
                 <source src="./static/videos/waterfall_hunyuan.webm" type="video/webm">
               </video>
             </div>
             <div class="column is-half" style="padding-bottom: 0px;">
               <p class="has-text-centered">Auto-foley</p>
-              <video controls muted playsinline height="100%">
+              <video controls playsinline height="100%">
                 <source src="./static/videos/waterfall_auto-foley.webm" type="video/webm">
               </video>
             </div>
             <div class="column is-half" style="padding-bottom: 0px;">
-              <video controls muted playsinline height="100%">
+              <video controls playsinline height="100%">
                 <source src="./static/videos/rally_hunyuan.webm" type="video/webm">
               </video>
             </div>
             <div class="column is-half" style="padding-bottom: 0px;">
-              <video controls muted playsinline height="100%">
+              <video controls playsinline height="100%">
                 <source src="./static/videos/rally_auto-foley.webm" type="video/webm">
               </video>
             </div>
             <div class="column is-half" style="padding-bottom: 0px;">
-              <video controls muted playsinline height="100%">
+              <video controls playsinline height="100%">
                 <source src="./static/videos/yoga_hunyuan.webm" type="video/webm">
               </video>
             </div>
             <div class="column is-half" style="padding-bottom: 0px;">
-              <video controls muted playsinline height="100%">
+              <video controls playsinline height="100%">
                 <source src="./static/videos/yoga_auto-foley.webm" type="video/webm">
               </video>
             </div>
@@ -274,13 +272,13 @@
           <div class="columns is-centered comparison-table">
             <div class="column is-half">
               <p class="has-text-centered">Basic input</p>
-              <video controls muted playsinline height="100%">
+              <video controls playsinline height="100%">
                 <source src="./static/videos/editor_basic.webm" type="video/webm">
               </video>
             </div>
             <div class="column is-half">
               <p class="has-text-centered">Advanced control</p>
-              <video controls muted playsinline height="100%">
+              <video controls playsinline height="100%">
                 <source src="./static/videos/editor_advanced.webm" type="video/webm">
               </video>
             </div>
@@ -317,6 +315,10 @@
     </div>
   </div>
 </footer>
+
+<script>
+  function toggleMute(e){let t=document.querySelectorAll("#results-carousel video");t.forEach(t=>{t!==e&&(t.muted=!0)}),e.muted=!e.muted}document.addEventListener("DOMContentLoaded",function(){let e=document.querySelector("#results-carousel");e&&e.addEventListener("click",function(e){let t=e.target.closest(".slider-navigation-previous, .slider-navigation-next");if(t){console.log("Navigation clicked:",t.className);let l=document.querySelectorAll("#results-carousel video");l.forEach(e=>{e.muted=!0})}})});
+</script>
 
 </body>
 </html>
